@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+    <!-- Logo da aplicação -->
+    <span class="logo">3d</span>
+
+    <!-- Links da navbar -->
+    <span class="spacer"></span> <!-- Espaço flexível -->
+
+    <!-- <button mat-button routerLink="/">Home</button> -->
+
+
+    <mat-form-field>
+        <mat-label>Empresa</mat-label>
+        <mat-select [formControl]="selected"  (selectionChange)="onSelectChange($event.value)">
+            <mat-option value="Salsicha3D">Salsicha3D</mat-option>
+            <mat-option value="Mario Doces">Mario Doces</mat-option>
+        </mat-select>
+    </mat-form-field>
+</mat-toolbar>

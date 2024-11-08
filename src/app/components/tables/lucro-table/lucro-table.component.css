@@ -1,0 +1,15 @@
+table {
+    width: 100%;
+  }
+  
+  mat-header-cell, mat-cell {
+    padding: 16px;
+  }
+  
+  button {
+    margin: 5px;
+  }
+  .table-container {
+    max-height: 400px; /* Defina a altura máxima que deseja */
+    overflow-y: auto; /* Adiciona o scroll vertical */
+  }

@@ -1,0 +1,58 @@
+<h2 mat-dialog-title>Adicionar Custo</h2>
+<mat-dialog-content>
+    <!-- Formulário com validação de campos -->
+    <form [formGroup]="formCost">
+        <div class="row">
+            <!-- Campo Compra -->
+            <mat-form-field appearance="fill">
+                <mat-label>Compra</mat-label>
+                <input matInput formControlName="compra" required>
+            </mat-form-field>
+            <!-- Campo Categoria -->
+
+            <mat-form-field>
+              <mat-label>Categoria</mat-label>
+              <mat-select formControlName="categoria" name="categoria">
+                <mat-option *ngFor="let cat of listCategory" [value]="cat.value">
+                  {{cat.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <!-- Campo Quantidade -->
+            <mat-form-field appearance="fill">
+                <mat-label>Quantidade</mat-label>
+                <input matInput formControlName="quantidade" type="number" required>
+            </mat-form-field>
+
+            <!-- Campo Preço -->
+            <mat-form-field appearance="fill">
+                <mat-label>Preço</mat-label>
+                <span matPrefix>R$ &nbsp;</span>
+                <input matInput formControlName="preco"  required>
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <!-- Campo Local da Compra -->
+            <mat-form-field appearance="fill">
+                <mat-label>Local da Compra</mat-label>
+                <input matInput formControlName="localCompra" required>
+            </mat-form-field>
+            <!-- Campo Data da Compra -->
+            <mat-form-field appearance="fill">
+                <mat-label>Data da Compra</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="dataCompra" required>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions  align="end">
+    <button mat-flat-button color="primary" [disabled]="!formCost.valid" (click)="saveCost()">Salvar</button>
+</mat-dialog-actions>

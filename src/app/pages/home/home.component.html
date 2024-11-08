@@ -1,0 +1,47 @@
+<div class="row">
+
+  <mat-form-field class="example-form-field">
+    <mat-label>Data </mat-label>
+    <mat-date-range-input [formGroup]="campaignOne" [rangePicker]="campaignOnePicker"
+      [comparisonStart]="campaignOne .value.start" [comparisonEnd]="campaignOne .value.end">
+      <input matStartDate placeholder="Start date" formControlName="start">
+      <input matEndDate placeholder="End date" formControlName="end">
+    </mat-date-range-input>
+    <mat-datepicker-toggle matIconSuffix [for]="campaignOnePicker"></mat-datepicker-toggle>
+    <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>
+  </mat-form-field>
+
+  <button mat-flat-button color="primary" (click)="search()"  [disabled]="!empresaSelect">Buscar</button>
+
+</div>
+
+
+<div *ngIf="gastos ||lucro">
+ 
+      <mat-grid-list cols="2" rowHeight="2:1">
+        <mat-grid-tile>
+          <app-horizontal-vertical *ngIf="gastos.length>0 && lucro.length>0" [gastos]="gastos" [lucro]="lucro"></app-horizontal-vertical>
+        </mat-grid-tile>
+        <mat-grid-tile><app-pizza [vendas]="lucro"></app-pizza></mat-grid-tile>
+        <mat-grid-tile><app-pizza-categoria [gastos]="gastos"></app-pizza-categoria></mat-grid-tile>
+
+      </mat-grid-list>
+      
+      <app-lucro-table [dataVendas]="lucro"> </app-lucro-table>
+        
+</div>
+
+
+
+
+<!-- Botão de menu no canto inferior direito -->
+<button mat-icon-button [matMenuTriggerFor]="menu" class="menu-button" [disabled]="!empresaSelect">
+  <mat-icon>add</mat-icon>
+</button>
+
+<!-- Menu suspenso -->
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="optionClicked(1)">Gastos</button>
+  <button mat-menu-item (click)="optionClicked(2)">Vendas</button>
+  <button mat-menu-item (click)="optionClicked(3)">Option 3</button>
+</mat-menu>

@@ -1,0 +1,46 @@
+<h2 mat-dialog-title>Registrar Venda</h2>
+
+<mat-dialog-content>
+    <form [formGroup]="form">
+        <div class="row">
+
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Venda</mat-label>
+                <input matInput formControlName="venda" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Data da Venda</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="dataVenda" required>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div class="row">
+
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Quantidade</mat-label>
+                <input matInput formControlName="quantidade" type="number" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Preço Unitario</mat-label>
+                <input matInput formControlName="preco" required>
+            </mat-form-field>
+        </div>
+        <mat-form-field>
+            <mat-label>Modo Pagamento</mat-label>
+            <mat-select formControlName="modoPagamento" name="modoPagamento">
+                <mat-option *ngFor="let cat of listPay" [value]="cat.value">
+                    {{cat.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-flat-button color="primary" [disabled]="!form.valid" (click)="save()">
+        <span *ngIf="data">Editar</span>
+        <span *ngIf="!data">Salvar</span></button>
+</mat-dialog-actions>

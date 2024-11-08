@@ -1,0 +1,10 @@
+.card {
+    height: 100%; /* Ou ajuste conforme necessário */
+    width: 100%; /* Ou ajuste conforme necessário */
+
+  }
+  
+  p-chart {
+    height: 100% !important;  /* Certifique-se de que o gráfico ocupe toda a altura */
+    width: 100% !important;   /* Certifique-se de que o gráfico ocupe toda a largura */
+  }

@@ -5,6 +5,7 @@
   },
   "hosting": {
     "source": ".",
+    "site": "salsicha3d-empresa",
     "ignore": [
       "firebase.json",
       "**/.*",

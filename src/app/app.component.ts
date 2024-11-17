@@ -22,7 +22,8 @@ export class AppComponent {
         console.log('Usuário logado:', this.user$);
       } else {
         console.log('Usuário não autenticado');
-        this.router.navigate(['/login']);  // Redireciona para o login se o usuário não estiver autenticado
+        this.authService.logout()
+        this.router.navigate(['login']);  // Redireciona para o login se o usuário não estiver autenticado
       }
     });
   }

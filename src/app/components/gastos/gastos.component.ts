@@ -81,10 +81,13 @@ export class GastosComponent implements OnInit {
         .displayName as string,
     };
     console.log(body);
-    this.firebaseService.savePost('custo', body);
-    this.load.hide();
-    this._snackBar.open('Salvo com sucesso', 'x', { duration: 3000 });
-    this.dialogRef.close();
+    this.firebaseService.savePost('custo', body).then((res)=>{
+      console.log(res)
+      body.id = res.id
+      this.dialogRef.close(body);
+      this.load.hide();
+      this._snackBar.open('Salvo com sucesso', 'x', { duration: 3000 });
+    });
   }
   createListCategory() {
     let list: { name: CategoryCostEnum; value: CategoryCostEnum }[] = [];

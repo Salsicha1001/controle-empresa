@@ -25,6 +25,11 @@ import { HorizontalVerticalComponent } from './components/grafico/horizontal-ver
 import { PizzaComponent } from './components/grafico/pizza/pizza.component';
 import { PizzaCategoriaComponent } from './components/grafico/pizza-categoria/pizza-categoria.component';
 import { LucroTableComponent } from './components/tables/lucro-table/lucro-table.component';
+import { SalsichaHomeComponent } from './pages/salsicha-home/salsicha-home.component';
+import { AddProjetoComponent } from './salsicha/add-projeto/add-projeto.component';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { DetailsProjectComponent } from './salsicha/details-project/details-project.component';
+import { GastoProjetoComponent } from './salsicha/gasto-projeto/gasto-projeto.component';
 const components = [
   AppComponent,
   LoginComponent,
@@ -36,7 +41,11 @@ const components = [
   HorizontalVerticalComponent,
   PizzaComponent,
   PizzaCategoriaComponent,
-  LucroTableComponent
+  LucroTableComponent,
+  SalsichaHomeComponent,
+  AddProjetoComponent,
+  DetailsProjectComponent,
+  GastoProjetoComponent
 ];
 @NgModule({
   declarations: components,
@@ -44,19 +53,22 @@ const components = [
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
-    FormsModule,
     ReactiveFormsModule,
+    FormsModule,
     BrowserAnimationsModule,
-    ChartModule, 
-    BrowserModule,
+    ChartModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireModule, // Para usar o Firestore
     AngularFireAuthModule,
     AngularFirestoreModule, // for firestore
-
+    AngularFireStorageModule,
   ],
   bootstrap: [AppComponent],
-  providers: [DatePipe, { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },FirebaseService],
+  providers: [
+    DatePipe,
+    { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
+    FirebaseService,
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}

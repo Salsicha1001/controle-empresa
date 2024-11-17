@@ -1,0 +1,15 @@
+.menu-button {
+    position: fixed;
+    bottom: 16px; /* Distância da parte inferior */
+    right: 16px;  /* Distância da parte direita */
+    z-index: 1000; /* Garante que o botão fique acima de outros elementos */
+    background-color: #3f51b5;
+}
+  
+  /* Estilo do menu, se necessário */
+  .mat-menu-panel {
+    max-width: 200px; /* Limita a largura do menu */
+  }
+button{
+    padding-left: 10px;
+  }
